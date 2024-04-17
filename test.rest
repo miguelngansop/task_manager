@@ -1,0 +1,25 @@
+### Inscription (signup)
+POST http://localhost:8000/api/auth/signup/
+Content-Type: application/json
+
+{
+    "email": "test_user_tes34t@test.com",
+    "username": "test_user_test23",
+    "password": "test_password"
+}
+
+###
+POST http://localhost:8000/api/auth/login/
+Content-Type: application/json
+
+{
+    "email": "test_user_test@test.com",
+    "password": "test_password"
+}
+
+#### Réponse attendue : HTTP 200 OK avec le token d'authentification dans la réponse
+
+GET http://localhost:8000/api/auth/test_token/
+Authorization: Token 92e26e6215931dd78a774f1ffb0b24136334a818
+
+# Réponse attendue : HTTP 200 OK si le token est valide, sinon HTTP 401 Unauthorized
