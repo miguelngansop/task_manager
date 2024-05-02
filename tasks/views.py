@@ -52,7 +52,6 @@ class TaskListCreateAPIView(generics.ListCreateAPIView):
         Side Effects:
         - Sets the 'created_by' field of the task to the current authenticated user.
         """
-        serializer.save(created_by=self.request.user)
         try:
             # Attempt to serialize the incoming data
             serializer = self.serializer_class(data=self.request.data)
